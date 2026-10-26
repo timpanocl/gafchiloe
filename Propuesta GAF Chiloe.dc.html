@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>html{scroll-behavior:smooth}body{margin:0;background:#F5F0E8;color:#1E1A17;font-family:Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}a{color:#B84A2C}a:hover{color:#4A2C20}button,input{font-family:inherit}@media print{header{position:static!important}}</style>
+</helmet>
+<div style="min-height:100vh;background:#F5F0E8">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(245,240,232,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(74,44,32,.12)">
+<div style="max-width:1120px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:14px 28px;flex-wrap:wrap">
+<a href="#inicio" style="display:flex;align-items:center;gap:11px;text-decoration:none">
+<svg viewBox="0 10 120 86" style="display:block;width:38px;flex:none"><path d="M12 92 V46 A24 24 0 0 1 60 46 V92 M60 46 A24 24 0 0 1 108 46 V92" style="fill:none;stroke:#4A2C20;stroke-width:16"></path><path d="M2 66 H118" style="fill:none;stroke:#B84A2C;stroke-width:10"></path></svg>
+<span style="display:flex;flex-direction:column;gap:5px"><span style="font:700 17px/1 Figtree,sans-serif;letter-spacing:-0.02em;color:#4A2C20;white-space:nowrap">Alberto Arcos M<span style="color:#B84A2C">.</span></span><span style="font:600 8.5px/1 Figtree,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#4A2C20">Guía digital</span></span>
+</a>
+<nav style="display:flex;gap:6px 20px;margin-left:auto;flex-wrap:wrap">
+<a href="#cotizacion" style="font:600 14px/1 Figtree,sans-serif;color:#4A2C20;text-decoration:none;padding:6px 0" style-hover="color:#B84A2C">Cotización</a>
+<a href="#redes" style="font:600 14px/1 Figtree,sans-serif;color:#4A2C20;text-decoration:none;padding:6px 0" style-hover="color:#B84A2C">Redes</a>
+<a href="#web" style="font:600 14px/1 Figtree,sans-serif;color:#4A2C20;text-decoration:none;padding:6px 0" style-hover="color:#B84A2C">Sitio web</a>
+<a href="#mantencion" style="font:600 14px/1 Figtree,sans-serif;color:#4A2C20;text-decoration:none;padding:6px 0" style-hover="color:#B84A2C">Mantención</a>
+<a href="#inversion" style="font:600 14px/1 Figtree,sans-serif;color:#4A2C20;text-decoration:none;padding:6px 0" style-hover="color:#B84A2C">Inversión</a>
+<a href="#condiciones" style="font:600 14px/1 Figtree,sans-serif;color:#4A2C20;text-decoration:none;padding:6px 0" style-hover="color:#B84A2C">Condiciones</a>
+</nav>
+<a href="#aceptacion" style="font:700 14px/1 Figtree,sans-serif;color:#F5F0E8;background:#B84A2C;text-decoration:none;padding:12px 18px;border-radius:999px;white-space:nowrap" style-hover="background:#1E1A17;color:#F5F0E8">Aceptar propuesta</a>
+</div>
+</header>
+
+<section id="inicio" style="background:{{ dk }};color:#F5F0E8">
+<div style="max-width:1120px;margin:0 auto;padding:88px 24px 96px;display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+<div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px">
+<div style="font:700 13px/1 Figtree,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#D39A2E">Cotización {{ p.numero }}</div>
+<h1 style="margin:0;font:700 clamp(38px,5.4vw,64px)/1.03 Figtree,sans-serif;letter-spacing:-0.035em;text-wrap:balance">Propuesta de servicios digitales para {{ p.cliente }}</h1>
+<p style="margin:0;max-width:560px;font:400 18px/1.6 Figtree,sans-serif;color:#E9E2D6;text-wrap:pretty">{{ p.lema }}</p>
+<div style="display:flex;flex-wrap:wrap;gap:18px 44px;padding-top:22px;border-top:1px solid rgba(245,240,232,.2)">
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font:600 11px/1 Figtree,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#CFC6B8">Preparada para</span><span style="font:600 16px/1.3 Figtree,sans-serif">{{ p.contacto }} · {{ p.cliente }}</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font:600 11px/1 Figtree,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#CFC6B8">Fecha</span><span style="font:600 16px/1.3 Figtree,sans-serif">{{ p.fecha }}</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font:600 11px/1 Figtree,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#CFC6B8">Validez</span><span style="font:600 16px/1.3 Figtree,sans-serif">15 días desde la emisión</span></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:6px">
+<a href="#redes" style="font:700 15px/1 Figtree,sans-serif;color:#1E1A17;background:#F5F0E8;text-decoration:none;padding:15px 22px;border-radius:999px" style-hover="background:#D39A2E;color:#1E1A17">Ver servicios</a>
+<a href="#inversion" style="font:700 15px/1 Figtree,sans-serif;color:#F5F0E8;text-decoration:none;padding:14px 22px;border-radius:999px;border:1px solid rgba(245,240,232,.5)" style-hover="border-color:#F5F0E8;color:#F5F0E8">Resumen de inversión</a>
+</div>
+</div>
+<div style="flex:0 1 400px;min-width:260px;display:flex;justify-content:center">
+<img src="assets/chiloe-bosque.png" alt="Ilustración de bosque nativo sobre un lago y volcán en Chiloé" style="display:block;width:100%;max-width:420px;height:auto">
+</div>
+</div>
+</section>
+
+<section id="cotizacion" style="scroll-margin-top:72px;max-width:1120px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:44px">
+<div style="display:flex;flex-wrap:wrap;gap:40px 56px">
+<div style="flex:1 1 380px;display:flex;flex-direction:column;gap:16px">
+<div style="font:700 13px/1 Figtree,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#B84A2C">Datos de la cotización</div>
+<h2 style="margin:0;font:700 clamp(30px,4vw,42px)/1.08 Figtree,sans-serif;letter-spacing:-0.03em;color:#4A2C20;text-wrap:balance">Tres servicios a elección</h2>
+<p style="margin:0;font:400 17px/1.6 Figtree,sans-serif;color:#3d342e;text-wrap:pretty">{{ p.intro }}</p>
+</div>
+<div style="flex:1 1 420px;background:#fff;border-radius:16px;padding:8px 26px">
+<sc-for list="{{ datos }}" as="d" hint-placeholder-count="7">
+<div style="display:grid;grid-template-columns:minmax(130px,.8fr) minmax(0,1.4fr);gap:16px;padding:14px 0;border-bottom:1px solid {{ d.line }}">
+<span style="font:600 13px/1.4 Figtree,sans-serif;color:#6b5a4e">{{ d.k }}</span>
+<sc-if value="{{ d.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ d.v }}" target="_blank" rel="noopener" style="font:600 15px/1.4 Figtree,sans-serif;word-break:break-all">{{ d.v }}</a></sc-if>
+<sc-if value="{{ d.isText }}" hint-placeholder-val="{{ true }}"><span style="font:600 15px/1.4 Figtree,sans-serif;color:#1E1A17">{{ d.v }}</span></sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+<sc-for list="{{ overview }}" as="o" hint-placeholder-count="3">
+<a href="{{ o.href }}" style="display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:14px;border:1px solid rgba(74,44,32,.14);text-decoration:none;color:#1E1A17;background:transparent" style-hover="background:#fff;color:#1E1A17">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="width:34px;height:34px;border-radius:50%;background:{{ dk }};color:#F5F0E8;display:grid;place-items:center;font:700 15px/1 Figtree,sans-serif">{{ o.n }}</span><span style="font:600 12px/1 Figtree,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6b5a4e">{{ o.tipo }}</span></div>
+<span style="font:700 19px/1.25 Figtree,sans-serif;color:#4A2C20">{{ o.t }}</span>
+<span style="font: 500 15px/1 Figtree,sans-serif; color: #B84A2C">{{ o.desde }}</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section id="proceso" style="scroll-margin-top:72px;background:#fff">
+<div style="max-width:1120px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+<div style="font:700 13px/1 Figtree,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#B84A2C">Cómo vamos a trabajar</div>
+<h2 style="margin:0;font:700 clamp(30px,4vw,42px)/1.08 Figtree,sans-serif;letter-spacing:-0.03em;color:#4A2C20">Cinco pasos de desarrollo</h2>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+<button onClick="{{ s.onClick }}" style="flex:1 1 170px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:18px 18px 20px;border-radius:12px;border:1px solid {{ s.border }};background:{{ s.bg }};color:{{ s.fg }};cursor:pointer;text-align:left">
+<span style="width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:700 14px/1 Figtree,sans-serif;background:{{ s.numBg }};color:{{ s.numFg }}">{{ s.n }}</span>
+<span style="font:700 16px/1.25 Figtree,sans-serif;text-wrap:balance">{{ s.t }}</span>
+</button>
+</sc-for>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px 48px;background:#F5F0E8;border-radius:16px;padding:34px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="font:600 13px/1 Figtree,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B84A2C">Paso {{ cur.n }} de {{ cur.total }}</div>
+<div style="font:700 28px/1.1 Figtree,sans-serif;letter-spacing:-0.025em;color:#4A2C20">{{ cur.t }}</div>
+<p style="margin:0;font:400 17px/1.6 Figtree,sans-serif;color:#3d342e;text-wrap:pretty">{{ cur.d }}</p>
+<div style="display:flex;gap:10px;padding-top:6px">
+<button onClick="{{ prevStep }}" style="font:700 14px/1 Figtree,sans-serif;padding:12px 18px;border-radius:999px;border:1px solid rgba(74,44,32,.3);background:transparent;color:#4A2C20;cursor:pointer;opacity:{{ prevOpacity }}">Anterior</button>
+<button onClick="{{ nextStep }}" style="font:700 14px/1 Figtree,sans-serif;padding:12px 18px;border-radius:999px;border:none;background:{{ dk }};color:#F5F0E8;cursor:pointer;opacity:{{ nextOpacity }}">Siguiente paso</button>
+</div>
+</div>
+<div style="align-self:center;background:#fff;border-radius:12px;padding:22px 24px;display:flex;flex-direction:column;gap:8px"><span style="font:600 11px/1 Figtree,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6b5a4e">Qué recibes</span><span style="font:600 18px/1.4 Figtree,sans-serif;color:#1E1A17">{{ cur.e }}</span></div>
+</div>
+</div>
+</section>
+
+<sc-for list="{{ services }}" as="s" hint-placeholder-count="3">
+<section id="{{ s.id }}" style="scroll-margin-top:72px;background:{{ s.bg }}">
+<div style="max-width:1120px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+<div style="font:700 13px/1 Figtree,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#B84A2C">{{ s.eyebrow }}</div>
+<h2 style="margin:0;font:700 clamp(30px,4vw,42px)/1.08 Figtree,sans-serif;letter-spacing:-0.03em;color:#4A2C20;text-wrap:balance">{{ s.titulo }}</h2>
+<p style="margin:0;font:400 17px/1.6 Figtree,sans-serif;color:#3d342e;text-wrap:pretty">{{ s.intro }}</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch;padding-top:6px">
+<sc-for list="{{ s.cards }}" as="k" hint-placeholder-count="3">
+<div style="position:relative;background:{{ k.cardBg }};border-radius:16px;padding:30px 28px 26px;display:flex;flex-direction:column;gap:18px;border:2px solid {{ k.border }}">
+<sc-if value="{{ k.rec }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;top:-13px;left:26px;background:#D39A2E;color:#1E1A17;font:700 11px/1 Figtree,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:7px 11px;border-radius:999px">Recomendado</div>
+</sc-if>
+<div style="display:flex;flex-direction:column;gap:6px">
+<span style="font:600 12px/1 Figtree,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6b5a4e">{{ k.tag }}</span>
+<span style="font:700 23px/1.15 Figtree,sans-serif;letter-spacing:-0.02em;color:#4A2C20">{{ k.n }}</span>
+</div>
+<div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px"><span style="font:700 36px/1 Figtree,sans-serif;letter-spacing:-0.03em;color:#1E1A17">{{ k.precio }}</span><span style="font:500 14px/1 Figtree,sans-serif;color:#6b5a4e">{{ k.unidad }}</span></div>
+<sc-if value="{{ k.hasPlazo }}" hint-placeholder-val="{{ false }}"><div style="align-self:flex-start;font:600 13px/1 Figtree,sans-serif;color:#1E1A17;background:rgba(211,154,46,.22);padding:7px 10px;border-radius:6px">Plazo estimado: {{ k.plazo }}</div></sc-if>
+<div style="display:flex;flex-direction:column;flex:1">
+<sc-for list="{{ k.items }}" as="f" hint-placeholder-count="4">
+<div style="display:flex;align-items:flex-start;gap:10px;padding:11px 0;border-top:1px solid rgba(74,44,32,.1);font:500 15px/1.4 Figtree,sans-serif;color:#1E1A17"><svg viewBox="0 0 16 16" style="width:16px;height:16px;flex:none;margin-top:2px"><path d="M3 8.5 L6.5 12 L13 4.5" style="fill:none;stroke:#B84A2C;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"></path></svg>{{ f }}</div>
+</sc-for>
+</div>
+<button onClick="{{ k.toggle }}" style="font:700 15px/1 Figtree,sans-serif;padding:15px 20px;border-radius:999px;border:1px solid {{ k.btnBorder }};background:{{ k.btnBg }};color:{{ k.btnFg }};cursor:pointer">{{ k.btnLabel }}</button>
+</div>
+</sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<button onClick="{{ s.toggleTable }}" style="align-self:flex-start;display:flex;align-items:center;gap:10px;font:700 15px/1 Figtree,sans-serif;color:#4A2C20;background:transparent;border:none;padding:8px 0;cursor:pointer"><span style="width:26px;height:26px;border-radius:50%;background:{{ dk }};color:#F5F0E8;display:grid;place-items:center;font:700 16px/1 Figtree,sans-serif">{{ s.tIcon }}</span>{{ s.tLabel }}</button>
+<sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}">
+<div style="background:{{ s.cardBg }};border-radius:16px;overflow-x:auto">
+<div style="min-width:{{ s.minW }};display:flex;flex-direction:column;padding-bottom:6px">
+<div style="display:grid;grid-template-columns:{{ s.cols }};border-bottom:2px solid #4A2C20">
+<div style="padding:18px 22px;font:600 12px/1.2 Figtree,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#6b5a4e">{{ s.firstCol }}</div>
+<sc-for list="{{ s.head }}" as="h" hint-placeholder-count="3">
+<div style="padding:18px 12px;text-align:center;font:700 15px/1.25 Figtree,sans-serif;color:#4A2C20;background:{{ h.bg }}">{{ h.n }}</div>
+</sc-for>
+</div>
+<sc-for list="{{ s.rows }}" as="r" hint-placeholder-count="8">
+<div style="display:grid;grid-template-columns:{{ s.cols }};border-top:1px solid rgba(74,44,32,.1)">
+<div style="padding:13px 22px;font:500 15px/1.4 Figtree,sans-serif;color:#1E1A17">{{ r.label }}</div>
+<sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="3">
+<div style="padding:13px 12px;display:flex;align-items:center;justify-content:center;font:600 14px/1.35 Figtree,sans-serif;color:#1E1A17;text-align:center;background:{{ c.bg }}">
+<sc-if value="{{ c.isCheck }}" hint-placeholder-val="{{ false }}"><svg viewBox="0 0 16 16" style="width:18px;height:18px"><path d="M3 8.5 L6.5 12 L13 4.5" style="fill:none;stroke:#B84A2C;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"></path></svg></sc-if>
+<sc-if value="{{ c.isDash }}" hint-placeholder-val="{{ false }}"><span style="width:12px;height:2px;background:rgba(74,44,32,.3)"></span></sc-if>
+<sc-if value="{{ c.isText }}" hint-placeholder-val="{{ true }}">{{ c.text }}</sc-if>
+</div>
+</sc-for>
+</div>
+</sc-for>
+<div style="display:grid;grid-template-columns:{{ s.cols }};border-top:2px solid #4A2C20">
+<div style="padding:16px 22px;font:700 15px/1.4 Figtree,sans-serif;color:#4A2C20">{{ s.totalLabel }}</div>
+<sc-for list="{{ s.head }}" as="h" hint-placeholder-count="3">
+<div style="padding:16px 12px;text-align:center;font:800 17px/1.2 Figtree,sans-serif;color:#1E1A17;background:{{ h.bg }}">{{ h.precio }}</div>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+<p style="margin:0;max-width:820px;font:400 15px/1.6 Figtree,sans-serif;color:#4a3f38;padding-left:16px;border-left:3px solid #D39A2E;text-wrap:pretty">{{ s.nota }}</p>
+</div>
+</section>
+</sc-for>
+
+<section id="inversion" style="scroll-margin-top:72px;background:#EDE7DD">
+<div style="max-width:1120px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+<div style="font:700 13px/1 Figtree,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#B84A2C">Resumen de inversión</div>
+<h2 style="margin:0;font:700 clamp(30px,4vw,42px)/1.08 Figtree,sans-serif;letter-spacing:-0.03em;color:#4A2C20;text-wrap:balance">Arma tu combinación</h2>
+<p style="margin:0;font:400 17px/1.6 Figtree,sans-serif;color:#3d342e;text-wrap:pretty">{{ p.recomendacion }}</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
+<div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:28px">
+<sc-for list="{{ pickers }}" as="g" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><span style="font:700 18px/1.2 Figtree,sans-serif;color:#1E1A17">{{ g.t }}</span><span style="font:500 13px/1 Figtree,sans-serif;color:#6b5a4e">{{ g.tipo }}</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ g.opts }}" as="o" hint-placeholder-count="3">
+<button onClick="{{ o.onClick }}" style="flex:1 1 130px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:14px 16px;border-radius:12px;border:2px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};cursor:pointer;text-align:left"><span style="font:700 15px/1.2 Figtree,sans-serif">{{ o.n }}</span><span style="font:500 13px/1 Figtree,sans-serif;opacity:.85">{{ o.sub }}</span></button>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="flex:1 1 320px;min-width:0;position:sticky;top:92px;background:{{ dk }};color:#F5F0E8;border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font:700 19px/1.2 Figtree,sans-serif">Tu inversión</span><svg viewBox="0 10 120 86" style="display:block;width:32px"><path d="M12 92 V46 A24 24 0 0 1 60 46 V92 M60 46 A24 24 0 0 1 108 46 V92" style="fill:none;stroke:#F5F0E8;stroke-width:16"></path><path d="M2 66 H118" style="fill:none;stroke:#B84A2C;stroke-width:10"></path></svg></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font:600 12px/1 Figtree,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#D39A2E">Primeros 3 meses · bruto</span>
+<span style="font:800 46px/1 Figtree,sans-serif;letter-spacing:-0.035em">{{ tres }}</span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="background:rgba(245,240,232,.08);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:600 11px/1 Figtree,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#CFC6B8">Total mensual</span><span style="font:700 20px/1 Figtree,sans-serif">{{ mensual }}</span></div>
+<div style="background:rgba(245,240,232,.08);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px"><span style="font:600 11px/1 Figtree,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#CFC6B8">Pago único</span><span style="font:700 20px/1 Figtree,sans-serif">{{ unico }}</span></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:10px;font:500 14px/1.45 Figtree,sans-serif;color:#F5F0E8;background:{{ discBg }};border-radius:10px;padding:12px 14px">{{ discText }}</div>
+<p style="margin:0;font:400 13px/1.5 Figtree,sans-serif;color:#CFC6B8">{{ formula }}</p>
+<a href="#aceptacion" style="text-align:center;font:700 16px/1 Figtree,sans-serif;padding:17px 20px;border-radius:999px;background:#B84A2C;color:#F5F0E8;text-decoration:none" style-hover="background:#D39A2E;color:#1E1A17">Aceptar esta combinación</a>
+<sc-if value="{{ notRec }}" hint-placeholder-val="{{ false }}">
+<button onClick="{{ resetRec }}" style="font:600 14px/1.3 Figtree,sans-serif;color:#E9E2D6;background:transparent;border:none;cursor:pointer;text-decoration:underline;padding:0">Volver a la combinación recomendada</button>
+</sc-if>
+</div>
+</div>
+<div style="background:#fff;border-radius:16px;overflow-x:auto">
+<div style="min-width:760px;display:flex;flex-direction:column;padding-bottom:6px">
+<div style="display:grid;grid-template-columns:minmax(260px,2fr) repeat(4,minmax(110px,1fr));border-bottom:2px solid #4A2C20;font:600 12px/1.25 Figtree,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6b5a4e">
+<div style="padding:16px 22px">Concepto</div><div style="padding:16px 12px">Tipo de pago</div><div style="padding:16px 12px;text-align:right">Valor bruto</div><div style="padding:16px 12px;text-align:right">Descuento 10 %</div><div style="padding:16px 22px 16px 12px;text-align:right">Valor final bruto</div>
+</div>
+<sc-for list="{{ detail }}" as="d" hint-placeholder-count="5">
+<div style="display:grid;grid-template-columns:minmax(260px,2fr) repeat(4,minmax(110px,1fr));border-top:1px solid {{ d.line }};font:{{ d.weight }} 15px/1.4 Figtree,sans-serif;color:{{ d.color }};background:{{ d.bg }}">
+<div style="padding:13px 22px">{{ d.c }}</div><div style="padding:13px 12px">{{ d.tipo }}</div><div style="padding:13px 12px;text-align:right">{{ d.bruto }}</div><div style="padding:13px 12px;text-align:right">{{ d.desc }}</div><div style="padding:13px 22px 13px 12px;text-align:right">{{ d.final }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+<p style="margin:0;max-width:820px;font:400 15px/1.6 Figtree,sans-serif;color:#4a3f38;padding-left:16px;border-left:3px solid #D39A2E;text-wrap:pretty">{{ p.notaInversion }}</p>
+</div>
+</section>
+
+<section id="adicionales" style="scroll-margin-top:72px;background:#fff">
+<div style="max-width:1120px;margin:0 auto;padding:88px 24px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="font:700 13px/1 Figtree,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#B84A2C">Servicios adicionales · a pedido</div>
+<h2 style="margin:0;font:700 clamp(28px,3.6vw,38px)/1.1 Figtree,sans-serif;letter-spacing:-0.03em;color:#4A2C20">Cuando necesites algo más</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 48px">
+<sc-for list="{{ p.adicionales }}" as="a" hint-placeholder-count="6">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-top:1px solid rgba(74,44,32,.14)"><span style="font:500 16px/1.4 Figtree,sans-serif;color:#1E1A17">{{ a.n }}</span><span style="font:700 17px/1 Figtree,sans-serif;color:#4A2C20;white-space:nowrap">{{ a.v }}</span></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="condiciones" style="scroll-margin-top:72px;max-width:880px;margin:0 auto;padding:96px 24px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="font:700 13px/1 Figtree,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#B84A2C">Condiciones comerciales</div>
+<h2 style="margin:0;font:700 clamp(28px,3.6vw,38px)/1.1 Figtree,sans-serif;letter-spacing:-0.03em;color:#4A2C20">Lo que conviene tener claro</h2>
+</div>
+<button onClick="{{ toggleAllCond }}" style="font:700 14px/1 Figtree,sans-serif;padding:11px 16px;border-radius:999px;border:1px solid rgba(74,44,32,.3);background:transparent;color:#4A2C20;cursor:pointer">{{ allCondLabel }}</button>
+</div>
+<div style="display:flex;flex-direction:column;border-bottom:1px solid rgba(74,44,32,.18)">
+<sc-for list="{{ conds }}" as="q" hint-placeholder-count="9">
+<div style="border-top:1px solid rgba(74,44,32,.18)">
+<button onClick="{{ q.toggle }}" style="width:100%;display:flex;align-items:center;gap:18px;padding:20px 0;background:transparent;border:none;cursor:pointer;text-align:left;color:#1E1A17"><span style="font:700 13px/1 Figtree,sans-serif;color:#B84A2C;width:22px;flex:none">{{ q.n }}</span><span style="flex:1;font:700 17px/1.35 Figtree,sans-serif">{{ q.t }}</span><span style="width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;font:600 18px/1 Figtree,sans-serif;background:{{ q.iconBg }};color:{{ q.iconFg }}">{{ q.icon }}</span></button>
+<sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+<p style="margin:0;padding:0 56px 22px 40px;font:400 16px/1.6 Figtree,sans-serif;color:#3d342e;text-wrap:pretty">{{ q.a }}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="aceptacion" style="scroll-margin-top:72px;background:#B84A2C;color:#F5F0E8">
+<div style="max-width:1120px;margin:0 auto;padding:96px 24px;display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start">
+<div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
+<h2 style="margin:0;font:700 clamp(34px,4.6vw,54px)/1.04 Figtree,sans-serif;letter-spacing:-0.035em;text-wrap:balance">Aceptación de la propuesta</h2>
+<p style="margin:0;max-width:480px;font:500 17px/1.55 Figtree,sans-serif;text-wrap:pretty">Revisa la combinación elegida, completa tus datos y envía la aceptación. Si prefieres, imprímela y fírmala.</p>
+<div style="display:flex;flex-direction:column;border-top:1px solid rgba(245,240,232,.35)">
+<sc-for list="{{ chosen }}" as="c" hint-placeholder-count="3">
+<div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(245,240,232,.25);font:500 15px/1.4 Figtree,sans-serif"><span>{{ c.l }}</span><span style="font-weight:700;white-space:nowrap">{{ c.v }}</span></div>
+</sc-for>
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0 0"><span style="font:700 15px/1.3 Figtree,sans-serif">Primeros 3 meses · bruto</span><span style="font:800 30px/1 Figtree,sans-serif;letter-spacing:-0.02em">{{ tres }}</span></div>
+</div>
+</div>
+<div style="flex:1 1 380px;min-width:0;background:#F5F0E8;color:#1E1A17;border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:16px;box-shadow:0 18px 40px rgba(30,26,23,.18)">
+<label style="display:flex;flex-direction:column;gap:7px;font:600 13px/1 Figtree,sans-serif;color:#4A2C20">Nombre<input value="{{ nombre }}" onChange="{{ onNombre }}" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:1px solid rgba(74,44,32,.28);background:#fff;font:500 16px/1.2 Figtree,sans-serif;color:#1E1A17"></label>
+<label style="display:flex;flex-direction:column;gap:7px;font:600 13px/1 Figtree,sans-serif;color:#4A2C20">Cargo<input value="{{ cargo }}" onChange="{{ onCargo }}" placeholder="Opcional" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:1px solid rgba(74,44,32,.28);background:#fff;font:500 16px/1.2 Figtree,sans-serif;color:#1E1A17"></label>
+<div style="display:flex;justify-content:space-between;font:500 14px/1.3 Figtree,sans-serif;color:#4a3f38"><span>Fecha de aceptación</span><span style="font-weight:700;color:#1E1A17">{{ hoy }}</span></div>
+<button onClick="{{ toggleAcepta }}" style="display:flex;align-items:flex-start;gap:12px;background:transparent;border:none;padding:4px 0;cursor:pointer;text-align:left;color:#1E1A17;font:500 15px/1.4 Figtree,sans-serif"><span style="width:22px;height:22px;border-radius:6px;border:2px solid #4A2C20;background:{{ aceptaBg }};display:grid;place-items:center;flex:none"><svg viewBox="0 0 16 16" style="width:14px;height:14px;opacity:{{ aceptaOp }}"><path d="M3 8.5 L6.5 12 L13 4.5" style="fill:none;stroke:#F5F0E8;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"></path></svg></span>He leído y acepto las condiciones comerciales de la cotización {{ p.numero }}.</button>
+<sc-if value="{{ warn }}" hint-placeholder-val="{{ false }}"><div style="font:600 13px/1.4 Figtree,sans-serif;color:#8f3418">Completa tu nombre y marca la casilla para enviar la aceptación.</div></sc-if>
+<a href="{{ mailto }}" onClick="{{ onAccept }}" style="text-align:center;font:700 16px/1 Figtree,sans-serif;padding:17px 20px;border-radius:999px;background:{{ dk }};color:#F5F0E8;text-decoration:none;opacity:{{ acceptOp }}">Aceptar propuesta</a>
+<sc-if value="{{ accepted }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;font:600 14px/1.4 Figtree,sans-serif;color:#1E1A17;background:rgba(211,154,46,.25);border-radius:10px;padding:12px 14px"><svg viewBox="0 0 16 16" style="width:16px;height:16px;flex:none"><path d="M3 8.5 L6.5 12 L13 4.5" style="fill:none;stroke:#B84A2C;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round"></path></svg>Se abrió tu correo con el resumen. Solo falta enviarlo.</div></sc-if>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a href="{{ waLink }}" target="_blank" rel="noopener" style="flex:1 1 150px;text-align:center;font:700 14px/1 Figtree,sans-serif;padding:14px 16px;border-radius:999px;border:1px solid rgba(74,44,32,.35);color:#4A2C20;text-decoration:none" style-hover="background:#fff;color:#4A2C20">Conversar por WhatsApp</a>
+<button onClick="{{ doPrint }}" style="flex:1 1 150px;font:700 14px/1 Figtree,sans-serif;padding:14px 16px;border-radius:999px;border:1px solid rgba(74,44,32,.35);background:transparent;color:#4A2C20;cursor:pointer">Imprimir o guardar PDF</button>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px;padding-top:18px">
+<div style="display:flex;flex-direction:column;gap:8px"><div style="height:34px;border-bottom:1px solid #4A2C20"></div><span style="font:500 12px/1 Figtree,sans-serif;color:#6b5a4e">Aceptación del cliente</span></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="height:34px;border-bottom:1px solid #4A2C20"></div><span style="font:500 12px/1 Figtree,sans-serif;color:#6b5a4e">Fecha</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<footer style="background:{{ dk }};color:#F5F0E8">
+<div style="max-width:1120px;margin:0 auto;padding:36px 24px;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between">
+<div style="display:flex;align-items:center;gap:11px">
+<svg viewBox="0 10 120 86" style="display:block;width:38px;flex:none"><path d="M12 92 V46 A24 24 0 0 1 60 46 V92 M60 46 A24 24 0 0 1 108 46 V92" style="fill:none;stroke:#F5F0E8;stroke-width:16"></path><path d="M2 66 H118" style="fill:none;stroke:#B84A2C;stroke-width:10"></path></svg>
+<span style="display:flex;flex-direction:column;gap:5px"><span style="font:700 17px/1 Figtree,sans-serif;letter-spacing:-0.02em;white-space:nowrap">Alberto Arcos M<span style="color:#D39A2E">.</span></span><span style="font:600 8.5px/1 Figtree,sans-serif;letter-spacing:.26em;text-transform:uppercase">Guía digital</span></span>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px 24px;font:600 14px/1.4 Figtree,sans-serif">
+<a href="mailto:aam.guiadigital@gmail.com" style="color:#F5F0E8;text-decoration:none" style-hover="color:#D39A2E">aam.guiadigital@gmail.com</a>
+<a href="tel:+56994141885" style="color:#F5F0E8;text-decoration:none" style-hover="color:#D39A2E">+56 9 9414 1885</a>
+</div>
+<div style="font:500 13px/1.4 Figtree,sans-serif;color:#CFC6B8">Cotización {{ p.numero }} · {{ p.fecha }}</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;paleta&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Bosque&quot;,&quot;Tinta&quot;],&quot;default&quot;:&quot;Bosque&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Color de fondos oscuros&quot;}}">
+class Component extends DCLogic {
+  // Contenido de la propuesta. Para otro cliente, edita solo este objeto.
+  P = {
+    numero: 'COT-026-100',
+    cliente: 'GAF Chiloé',
+    contacto: 'Fernanda Vergara M.',
+    fecha: '26 de octubre de 2026',
+    lema: 'Redes sociales, sitio web y mantención para fortalecer la presencia digital de la consultora ambiental y forestal.',
+    intro: 'Propuesta de tres servicios para fortalecer la presencia digital de GAF Chiloé, que se pueden contratar por separado o en conjunto. \nCreación de contenidos para redes sociales, actualización de contenido en sitio web y mantención web. \nTodos los valores están en pesos chilenos (CLP).',
+    datos: [
+      ['Cliente', 'GAF Chiloé'], ['Contacto', 'Fernanda Vergara M.'], ['Sitio web actual', 'https://www.gafchiloe.cl/'],
+      ['Redes sociales', 'Instagram (@gafchiloe), LinkedIn, Facebook'], ['N° de cotización', 'COT-026-100'],
+      ['Validez de la oferta', '15 días desde la fecha de emisión'], ['Moneda', 'CLP, valores brutos con boleta de honorarios']
+    ],
+    pasos: [
+      { t: 'Reunión inicial', d: 'Conversamos sobre los alcances del proyecto. Definimos el contexto, responsables y canales de aprobación.', e: 'Objetivos y cotización final' },
+      { t: 'Diagnóstico', d: 'Revisión de las redes, el sitio web para saber desde dónde partimos y qué priorizar.', e: 'Diagnóstico con prioridades' },
+      { t: 'Planificación mensual y semanal', d: 'Calendario del mes y tareas semanales para su aprobación.', e: 'Calendario mensual y plan semanal' },
+      { t: 'Implementación', d: 'Acciones diarias de diseño, publicación y actualización según lo planificado.', e: 'Publicaciones y actualizaciones aprobadas' },
+      { t: 'Seguimiento', d: 'Medimos qué funcionó, ajustamos el plan y revisamos resultados juntos. Mensualmente', e: 'Informe de resultados y ajustes' }
+    ],
+    servicios: [
+      { key: 'redes', id: 'redes', tipo: 'Mensual', eyebrow: 'Servicio 1 · Mensual', titulo: 'Contenidos para redes sociales', corto: 'Redes sociales',
+        intro: 'Cubre las tres redes de GAF Chiloé (Instagram, LinkedIn y Facebook) con publicaciones al mes para las 3 cuentas y posibilidad de gestión de la comunidad. LinkedIn tendrá un rol central para llegar a empresas e instituciones que contratan sus servicios.',
+        nota: 'El cliente entrega accesos a las cuentas, logo, información de productos y aprobaciones en un máximo de 48 horas hábiles. Contrato mínimo de 3 meses, ya que el primer mes se dedica en buena parte a definir la línea gráfica y la estrategia.',
+        tag: 'Plan', unidad: 'al mes · bruto', totalLabel: 'Valor mensual (bruto)', firstCol: 'Incluye',
+        planes: [
+          { id: 'basico', n: 'Básico', precio: 260000, res: 'Contenidos redes: Plan Básico', items: ['2 redes gestionadas', '8 publicaciones al mes, 2 de ellas reels', 'Calendario, diseño, redacción y publicación', 'Informe mensual simple'] },
+          { id: 'estandar', n: 'Estándar', precio: 461000, rec: true, res: 'Contenidos redes: Plan Estándar', items: ['3 redes gestionadas', '12 publicaciones al mes, 4 de ellas reels', '8 historias al mes', 'Respuesta de comentarios y mensajes', 'Informe mensual + reunión'] },
+          { id: 'premium', n: 'Premium', precio: 767000, res: 'Contenidos redes: Plan Premium', items: ['Hasta 4 redes gestionadas', '16 publicaciones al mes, 6 de ellas reels', '16 historias al mes', '1 campaña Meta Ads (inversión aparte)', 'Sesión de fotos/video en terreno por trimestre'] }
+        ],
+        filas: [
+          ['Redes gestionadas', '2', '3', 'Hasta 4'], ['Publicaciones al mes (feed)', '8', '12', '16'], ['De ellas, reels o videos cortos', '2', '4', '6'],
+          ['Historias al mes', '—', '8', '16'], ['Calendario editorial mensual', 'Sí', 'Sí', 'Sí'], ['Diseño gráfico y redacción (copy + hashtags)', 'Sí', 'Sí', 'Sí'],
+          ['Programación y publicación', 'Sí', 'Sí', 'Sí'], ['Respuesta de comentarios y mensajes (días hábiles)', '—', 'Sí', 'Sí'],
+          ['Estrategia de contenidos y línea gráfica', 'Básica', 'Inicial + ajuste trimestral', 'Completa + ajuste mensual'],
+          ['Gestión de campañas pagadas (Meta Ads)', '—', '—', '1 campaña (inversión aparte)'], ['Sesión de fotos/video en terreno', '—', '—', '1 por trimestre'],
+          ['Rondas de corrección por pieza', '1', '2', '2'], ['Informe de resultados', 'Mensual simple', 'Mensual + reunión', 'Mensual + reunión']
+        ] },
+      { key: 'web', id: 'web', tipo: 'Mes / ÚNICO', eyebrow: 'Servicio 2 · Pago único', titulo: 'Actualización del sitio web', corto: 'Sitio web',
+        intro: 'El sitio actual de GAF Chiloé es una página única con cinco secciones (Inicio, Servicios, Proyectos, Clientes y Contacto). La opción A pone al día ese mismo sitio. La opción B lo rehace en WordPress con páginas propias por servicio y proyecto, para mejorar su posicionamiento en Google y que el equipo pueda editarlo sin depender de un programador.',
+        nota: 'No incluye: dominio, hosting, licencias de plantillas o plugins de pago, fotografía profesional, redacción de textos largos ni tienda en línea. Una tienda (WooCommerce) se cotiza aparte.',
+        tag: 'Opción', unidad: 'pago único · bruto', totalLabel: 'Valor (bruto)', firstCol: 'Entregable',
+        planes: [
+          { id: 'A', n: 'A. Actualización de contenidos', h: 'A. Actualización', precio: 378000, plazo: '2 semanas', res: 'Actualización del sitio: opción A', items: ['Hasta 5 páginas existentes', 'Textos, imágenes, servicios y contacto al día', 'Ajustes visuales y SEO básico', '2 rondas de corrección'] },
+          { id: 'B', n: 'B. Rediseño completo (WordPress)', h: 'B. Rediseño', precio: 1003000, plazo: '4 a 6 semanas', res: 'Rediseño completo del sitio: opción B', items: ['Hasta 8 páginas nuevas o rediseñadas', 'Diseño nuevo alineado a la marca', 'SEO + Google Search Console y Analytics 4', '3 rondas de corrección', 'Capacitación de 1 hora para editar el sitio'] }
+        ],
+        filas: [
+          ['Diagnóstico inicial (velocidad, celular, SEO, seguridad)', 'Sí', 'Sí'], ['Páginas trabajadas', 'Hasta 5 existentes', 'Hasta 8 (nuevas o rediseñadas)'],
+          ['Textos, imágenes, servicios y datos de contacto al día', 'Sí', 'Sí'], ['Ajustes visuales (colores, tipografía, botones)', 'Sí', 'Diseño nuevo alineado a la marca'],
+          ['Adaptación a celular (responsive)', 'Correcciones puntuales', 'Completa'], ['SEO básico (títulos, descripciones, imágenes optimizadas)', 'Sí', 'Sí + Google Search Console'],
+          ['Formularios, WhatsApp y enlaces a redes', 'Revisión', 'Configuración nueva'], ['Optimización de velocidad', 'Básica', 'Completa'],
+          ['Google Analytics 4', 'Revisión', 'Instalación y configuración'], ['Rondas de corrección', '2', '3'],
+          ['Capacitación para editar el sitio', '—', '1 sesión de 1 hora'], ['Plazo estimado', '2 semanas', '4 a 6 semanas']
+        ] },
+      { key: 'mant', id: 'mantencion', tipo: 'Mensual', eyebrow: 'Servicio 3 · Mensual', titulo: 'Mantención web', corto: 'Mantención',
+        intro: 'La mantención mantiene el sitio seguro, respaldado y al día. Se diferencia de la actualización en que es continua e incluye horas fijas para cambios menores cada mes.',
+        nota: 'Las horas no usadas no se acumulan. La hora adicional se cobra a $36.000 bruto. El hosting y el dominio los paga el cliente directamente al proveedor.',
+        tag: 'Plan', unidad: 'al mes · bruto', totalLabel: 'Valor mensual (bruto)', firstCol: 'Incluye',
+        planes: [
+          { id: 'esencial', n: 'Esencial', precio: 71000, res: 'Mantención web: Esencial', items: ['Actualización mensual de la plataforma', 'Respaldo semanal', 'Monitoreo, firewall, antimalware y SSL', '1 h/mes para cambios menores', 'Respuesta en 72 h hábiles'] },
+          { id: 'plus', n: 'Plus', precio: 142000, res: 'Mantención web: Plus', items: ['Actualización semanal de la plataforma', 'Respaldo diario, con prueba de restauración trimestral', '3 h/mes para cambios menores', 'Respuesta en 24 h hábiles', 'Revisión mensual de velocidad y enlaces rotos'] }
+        ],
+        filas: [
+          ['Actualización de la plataforma, plantilla y complementos', 'Mensual', 'Semanal'], ['Respaldo (backup) del sitio', 'Semanal', 'Diario, con prueba de restauración trimestral'],
+          ['Monitoreo de disponibilidad (aviso si el sitio cae)', 'Sí', 'Sí'], ['Seguridad: firewall, antimalware y certificado SSL', 'Sí', 'Sí'],
+          ['Horas para cambios menores (textos, imágenes, banners)', '1 h/mes', '3 h/mes'], ['Tiempo de respuesta', '72 h hábiles', '24 h hábiles'],
+          ['Revisión de velocidad y enlaces rotos', '—', 'Mensual'], ['Informe mensual', 'Breve', 'Completo (visitas, seguridad, cambios)']
+        ] }
+    ],
+    recomendado: { redes: 'estandar', web: 'A', mant: 'esencial' },
+    descuento: 0.1,
+    recomendacion: 'La combinación recomendada (Plan Estándar + Actualización A + Mantención Esencial) suma $1.776.600 brutos por los primeros 3 meses, con un 10 % de descuento por contratar los tres servicios juntos.',
+    notaInversion: 'El descuento aplica mientras se mantengan contratados los servicios mensuales. Los valores no incluyen IVA porque se emite boleta de honorarios.',
+    adicionales: [
+      { n: 'Publicación adicional (post o carrusel)', v: '$30.000' }, { n: 'Reel o video corto adicional (hasta 60 s)', v: '$54.000' },
+      { n: 'Sesión de fotos o video en terreno (medio día)', v: '$177.000' }, { n: 'Gestión de Meta Ads en planes Básico o Estándar', v: '$118.000/mes' },
+      { n: 'Página web adicional', v: '$95.000' }, { n: 'Hora de soporte o desarrollo web fuera de plan', v: '$36.000' }
+    ],
+    condiciones: [
+      { t: 'Forma de pago, servicios únicos', a: '50 % al aceptar la propuesta y 50 % a la entrega del sitio.' },
+      { t: 'Forma de pago, servicios mensuales', a: 'Por mes anticipado, dentro de los primeros 5 días hábiles, por transferencia bancaria contra boleta de honorarios.' },
+      { t: 'Boleta de honorarios', a: 'Los valores son brutos. Como empresa, GAF Chiloé retiene el 15,25 % de cada boleta y lo entera al SII, según la tasa vigente en 2026.' },
+      { t: 'Permanencia', a: 'Mínimo 3 meses para redes sociales; mantención sin permanencia. Término con aviso escrito de 30 días.' },
+      { t: 'Inversión publicitaria', a: 'El presupuesto de anuncios (Meta, LinkedIn, Google) lo paga el cliente directamente a la plataforma y no está incluido.' },
+      { t: 'Plazos', a: 'Corren desde la recepción del anticipo, los accesos y el material del cliente. Las demoras en aprobaciones mueven las fechas en la misma medida.' },
+      { t: 'Cambios de alcance', a: 'Lo que exceda lo descrito en cada plan se cotiza aparte o se descuenta de las horas adicionales.' },
+      { t: 'Propiedad', a: 'El contenido y el sitio pasan a ser del cliente una vez pagados. Las cuentas, el dominio y el hosting quedan siempre a nombre del cliente.' },
+      { t: 'Validez', a: '15 días desde la emisión. Los valores se reajustan una vez al año según IPC.' }
+    ],
+    email: 'aam.guiadigital@gmail.com',
+    wa: '56994141885'
+  };
+
+  state = { step: 0, redes: 'estandar', web: 'A', mant: 'esencial', open: {}, cond: { 0: true }, nombre: 'Fernanda Vergara M.', cargo: '', acepta: false, accepted: false, warn: false, print: false };
+
+  componentDidMount() {
+    this._bp = () => this.setState({ print: true });
+    this._ap = () => this.setState({ print: false });
+    window.addEventListener('beforeprint', this._bp);
+    window.addEventListener('afterprint', this._ap);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('beforeprint', this._bp);
+    window.removeEventListener('afterprint', this._ap);
+  }
+
+  fmt(n) { return '$' + Math.round(n).toLocaleString('es-CL'); }
+
+  renderVals() {
+    const P = this.P, S = this.state, fmt = n => this.fmt(n);
+    const dk = (this.props.paleta ?? 'Bosque') === 'Tinta' ? '#1E1A17' : '#1E3A2F';
+    const tint = 'rgba(184,74,44,.08)';
+
+    const datos = P.datos.map((d, i) => ({ k: d[0], v: d[1], isLink: /^https?:/.test(d[1]), isText: !/^https?:/.test(d[1]), line: i === P.datos.length - 1 ? 'transparent' : 'rgba(74,44,32,.1)' }));
+
+    const steps = P.pasos.map((s, i) => {
+      const on = i === S.step;
+      return { n: i + 1, t: s.t, onClick: () => this.setState({ step: i }),
+        bg: on ? dk : '#F5F0E8', fg: on ? '#F5F0E8' : '#1E1A17', border: on ? dk : 'rgba(74,44,32,.12)',
+        numBg: on ? '#B84A2C' : '#fff', numFg: on ? '#F5F0E8' : '#4A2C20' };
+    });
+    const cur = { ...P.pasos[S.step], n: S.step + 1, total: P.pasos.length };
+
+    const overview = P.servicios.map((s, i) => {
+      const min = Math.min(...s.planes.map(p => p.precio));
+      return { n: i + 1, t: s.titulo, tipo: s.tipo, href: '#' + s.id, desde: 'Desde ' + fmt(min) + (s.tipo === 'Mensual' ? '/mes' : '') };
+    });
+
+    const services = P.servicios.map((s, si) => {
+      const selId = S[s.key];
+      const sbg = si % 2 === 0 ? '#F5F0E8' : '#fff';
+      const cardBg = si % 2 === 0 ? '#fff' : '#F5F0E8';
+      const open = !!S.open[s.key] || S.print;
+      const n = s.planes.length;
+      return { ...s, bg: sbg, cardBg, open,
+        toggleTable: () => this.setState(st => ({ open: { ...st.open, [s.key]: !st.open[s.key] } })),
+        tLabel: open ? 'Ocultar comparación' : 'Ver comparación completa', tIcon: open ? '−' : '+',
+        cols: 'minmax(220px,1.5fr) repeat(' + n + ',minmax(140px,1fr))', minW: (n === 3 ? 760 : 600) + 'px',
+        head: s.planes.map(p => ({ n: p.h || p.n, precio: fmt(p.precio), bg: p.id === selId ? tint : 'transparent' })),
+        rows: s.filas.map(r => ({ label: r[0], cells: r.slice(1).map((v, i) => ({
+          isCheck: v === 'Sí', isDash: v === '—', isText: v !== 'Sí' && v !== '—', text: v,
+          bg: s.planes[i].id === selId ? tint : 'transparent' })) })),
+        cards: s.planes.map(p => {
+          const sel = p.id === selId;
+          return { ...p, tag: s.tag, unidad: s.unidad, cardBg, rec: !!p.rec, hasPlazo: !!p.plazo, precio: fmt(p.precio),
+            border: sel ? '#B84A2C' : (p.rec ? '#D39A2E' : 'transparent'),
+            btnBg: sel ? dk : 'transparent', btnFg: sel ? '#F5F0E8' : '#4A2C20', btnBorder: sel ? dk : 'rgba(74,44,32,.4)',
+            btnLabel: sel ? '✓ Incluido en tu propuesta' : 'Incluir en la propuesta',
+            toggle: () => this.setState(st => ({ [s.key]: st[s.key] === p.id ? null : p.id })) };
+        }) };
+    });
+
+    const pickers = P.servicios.map(s => ({ t: s.titulo, tipo: s.tipo,
+      opts: s.planes.map(p => ({ id: p.id, n: p.h || p.n, sub: fmt(p.precio) + (s.tipo === 'Mensual' ? '/mes' : '') })).concat([{ id: null, n: 'No incluir', sub: '—' }])
+        .map(o => { const on = S[s.key] === o.id;
+          return { ...o, border: on ? dk : 'rgba(74,44,32,.14)', bg: on ? dk : '#fff', fg: on ? '#F5F0E8' : '#1E1A17',
+            onClick: () => this.setState({ [s.key]: o.id }) }; }) }));
+
+    const find = (key, id) => { const s = P.servicios.find(x => x.key === key); return s.planes.find(p => p.id === id) || null; };
+    const r = find('redes', S.redes), w = find('web', S.web), m = find('mant', S.mant);
+    const disc = r && w && m ? P.descuento : 0;
+    const row = (p, tipo, extra) => { const d = Math.round(p.precio * disc); return { c: p.res, tipo, bruto: fmt(p.precio), desc: disc ? '−' + fmt(d) : '—', final: fmt(p.precio - d), ...extra }; };
+    const base = { weight: 500, color: '#1E1A17', bg: 'transparent', line: 'rgba(74,44,32,.1)' };
+    const mensBruto = (r ? r.precio : 0) + (m ? m.precio : 0);
+    const mensDesc = (r ? Math.round(r.precio * disc) : 0) + (m ? Math.round(m.precio * disc) : 0);
+    const mensFinal = mensBruto - mensDesc;
+    const unicoFinal = w ? w.precio - Math.round(w.precio * disc) : 0;
+    const tres = unicoFinal + 3 * mensFinal;
+
+    const detail = [];
+    if (r) detail.push(row(r, 'Mensual', base));
+    if (m) detail.push(row(m, 'Mensual', base));
+    if (r || m) detail.push({ c: 'Total mensual', tipo: 'Mensual', bruto: fmt(mensBruto), desc: disc ? '−' + fmt(mensDesc) : '—', final: fmt(mensFinal), weight: 700, color: '#4A2C20', bg: 'rgba(211,154,46,.14)', line: '#4A2C20' });
+    if (w) detail.push(row(w, 'Único', base));
+    let altTxt = '';
+    if (w && w.id === 'A') {
+      const b = find('web', 'B');
+      detail.push({ ...row(b, 'Único', { ...base, color: '#6b5a4e' }), c: 'Alternativa: rediseño completo (opción B)' });
+      const tresB = (b.precio - Math.round(b.precio * disc)) + 3 * mensFinal;
+      altTxt = ' Con la opción B el total es ' + fmt(tresB) + ' brutos.';
+    }
+    if (!detail.length) detail.push({ c: 'Elige al menos un servicio', tipo: '', bruto: '', desc: '', final: '', ...base, color: '#6b5a4e' });
+
+    const formula = (w ? 'Primeros 3 meses con la opción ' + w.id + ': ' + fmt(unicoFinal) + ' + 3 × ' + fmt(mensFinal) : 'Primeros 3 meses: 3 × ' + fmt(mensFinal)) + ' = ' + fmt(tres) + ' brutos.' + altTxt;
+    const R = P.recomendado;
+    const notRec = !(S.redes === R.redes && S.web === R.web && S.mant === R.mant);
+
+    const chosen = [r ? { l: r.res, v: fmt(r.precio - Math.round(r.precio * disc)) + '/mes' } : null,
+      w ? { l: w.res, v: fmt(unicoFinal) + ' único' } : null,
+      m ? { l: m.res, v: fmt(m.precio - Math.round(m.precio * disc)) + '/mes' } : null].filter(Boolean);
+    if (disc) chosen.push({ l: 'Descuento por contratar los tres servicios', v: '10 %' });
+    if (!chosen.length) chosen.push({ l: 'Aún no eliges servicios', v: '—' });
+
+    const conds = P.condiciones.map((q, i) => { const open = !!S.cond[i] || S.print;
+      return { ...q, n: String(i + 1).padStart(2, '0'), open, icon: open ? '−' : '+', iconBg: open ? '#B84A2C' : 'transparent', iconFg: open ? '#F5F0E8' : '#4A2C20',
+        toggle: () => this.setState(st => ({ cond: { ...st.cond, [i]: !st.cond[i] } })) }; });
+    const allOpen = P.condiciones.every((q, i) => S.cond[i]);
+
+    const hoy = new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
+    const canAccept = S.acepta && S.nombre.trim().length > 1;
+    const body = 'Hola Alberto:\n\nAcepto la propuesta ' + P.numero + ' con la siguiente combinación:\n\n' + chosen.map(c => '· ' + c.l + ': ' + c.v).join('\n') +
+      '\n\nTotal mensual: ' + fmt(mensFinal) + '\nPago único: ' + fmt(unicoFinal) + '\nPrimeros 3 meses: ' + fmt(tres) + ' brutos\n\nNombre: ' + S.nombre + (S.cargo ? '\nCargo: ' + S.cargo : '') + '\nEmpresa: ' + P.cliente + '\nFecha: ' + hoy;
+    const mailto = 'mailto:' + P.email + '?subject=' + encodeURIComponent('Aceptación de propuesta ' + P.numero + ' · ' + P.cliente) + '&body=' + encodeURIComponent(body);
+    const waLink = 'https://wa.me/' + P.wa + '?text=' + encodeURIComponent('Hola Alberto, quiero conversar la propuesta ' + P.numero + ' para ' + P.cliente + '.');
+
+    return {
+      p: P, dk, datos, overview, steps, cur,
+      prevStep: () => this.setState(s => ({ step: Math.max(0, s.step - 1) })),
+      nextStep: () => this.setState(s => ({ step: Math.min(P.pasos.length - 1, s.step + 1) })),
+      prevOpacity: S.step === 0 ? 0.4 : 1, nextOpacity: S.step === P.pasos.length - 1 ? 0.4 : 1,
+      services, pickers, detail, formula, notRec,
+      resetRec: () => this.setState({ redes: R.redes, web: R.web, mant: R.mant }),
+      tres: fmt(tres), mensual: fmt(mensFinal), unico: fmt(unicoFinal),
+      discText: disc ? '10 % de descuento aplicado por contratar los tres servicios juntos.' : 'Contratando los tres servicios juntos obtienes un 10 % de descuento.',
+      discBg: disc ? 'rgba(211,154,46,.28)' : 'rgba(245,240,232,.08)',
+      conds, allCondLabel: allOpen ? 'Cerrar todas' : 'Abrir todas',
+      toggleAllCond: () => this.setState(() => ({ cond: allOpen ? {} : Object.fromEntries(P.condiciones.map((q, i) => [i, true])) })),
+      chosen, hoy, nombre: S.nombre, cargo: S.cargo,
+      onNombre: e => this.setState({ nombre: e.target.value, warn: false }),
+      onCargo: e => this.setState({ cargo: e.target.value }),
+      toggleAcepta: () => this.setState(s => ({ acepta: !s.acepta, warn: false })),
+      aceptaBg: S.acepta ? '#B84A2C' : 'transparent', aceptaOp: S.acepta ? 1 : 0,
+      acceptOp: canAccept ? 1 : 0.55, warn: S.warn, accepted: S.accepted,
+      mailto: canAccept ? mailto : '#aceptacion',
+      onAccept: e => { if (!canAccept) { e.preventDefault(); this.setState({ warn: true }); return; } this.setState({ accepted: true }); },
+      waLink, doPrint: () => window.print()
+    };
+  }
+}
+</script>
+</body>
+</html>
